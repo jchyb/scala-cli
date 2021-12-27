@@ -18,4 +18,4 @@ if [ $# -eq 0 ]
 fi
 
 # adding --resource-dirs is a hack to get file watching for free on .md files
-scala-cli sclicheck/sclicheck.scala --resource-dirs docs -- $toCheck
+scala-cli sclicheck/sclicheck.scala -- $toCheck
