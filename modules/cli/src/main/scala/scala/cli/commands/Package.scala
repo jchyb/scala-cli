@@ -873,7 +873,8 @@ object Package extends ScalaCommand[PackageOptions] {
     logger: Logger
   ): Unit = {
 
-    val cliOptions = build.options.scalaNativeOptions.configCliOptions()
+    val cliOptions =
+      build.options.scalaNativeOptions.configCliOptions(!build.sources.resourceDirs.isEmpty)
 
     val nativeWorkDir = build.inputs.nativeWorkDir
     os.makeDir.all(nativeWorkDir)
