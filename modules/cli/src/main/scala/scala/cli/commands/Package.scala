@@ -891,7 +891,7 @@ object Package extends ScalaCommand[PackageOptions] {
       ResourceMapper.copyCFilesToScalaNativeDir(build, nativeWorkDir)
       Library.withLibraryJar(build, dest.last.stripSuffix(".jar")) { mainJar =>
 
-        val classpath = build.fullClassPath.map(_.toString) :+ mainJar.toString
+        val classpath = build.artifacts.classPath.map(_.toString) :+ mainJar.toString
         val args =
           cliOptions ++
             logger.scalaNativeCliInternalLoggerOptions ++
